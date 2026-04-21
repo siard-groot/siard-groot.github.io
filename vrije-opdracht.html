@@ -23,7 +23,7 @@
 <meta name="author" content="Siard Groot" />
 
 
-<meta name="date" content="2026-04-16" />
+<meta name="date" content="2026-04-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -95,8 +95,42 @@
             <section class="normal" id="section-">
 <div id="vrije-opdracht" class="section level1 hasAnchor">
 <h1>Vrije opdracht<a href="vrije-opdracht.html#vrije-opdracht" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Iets met llm of single-cell RNA-seq ofz</p>
+<div id="keuze-onderwerp" class="section level2 hasAnchor">
+<h2>Keuze onderwerp<a href="vrije-opdracht.html#keuze-onderwerp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ik heb er voor gekozen om mijzelf te verdiepen in het analyseren van single cell RNA-sequencing data.</p>
+</div>
+<div id="theoretische-achtergrond" class="section level2 hasAnchor">
+<h2>Theoretische achtergrond<a href="vrije-opdracht.html#theoretische-achtergrond" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="wat-is-single-cell-rna-sequncing" class="section level3 hasAnchor">
+<h3>Wat is single cell RNA-sequncing<a href="vrije-opdracht.html#wat-is-single-cell-rna-sequncing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Single cell RNA-sequencing (scRNA-seq) is een methode om verschillende celtypes in een heterogeen monster/biopt te identificeren. Voor deze techniek is zowel de praktische uitvoering als de juiste analyse van de data essentieel
+om verschillende celtypes te kunnen identificeren.</p>
+<p>In het praktische deel word een biopt of ander type monster (b.v. hersenweefsel of bloed). Het biopt word gesuspendeerd zodat alle cellen los van elkaar in de oplossing zitten. Vervolgens is het de bedoeling dat al het RNA in één cel een unieke barcode krijgt, en dat elk RNA fragment in één cel een Unique Molecular Identifier (UMI) krijgt. De barcode kan worden gebruikt om al het RNA uit één cel te kunnen identificeren. De UMI is belangrijk om te bepalen hoeveel (na amplificatie d.m.v. PCR) unieke fragmenten er zijn en hoe vaak deze geamplificeerd zijn. Zonder UMI kan je bijvoorbeeld niet achterhalen of 1 frament 100 keer is geamplificeerd tijdens PCR, of dat er 100 van deze fragmenten al aanwezig waren in de cel.</p>
+<p>Deze barcode en UMI worden aan een cel gekoppeld via beads die gecoat zijn met RNA sequenctie die de barcode en UMI bevatten. Hiervoor is speciaal microfluidics aperatuur ontwikkeld die er voor zorgen dat één cel en één bead in een klein olie druppeltje terecht komen. In de druppel word de cel gelyseerd, binden de RNA fragmenten van de cel aan de RNA fragmenten op de bead en vind er reverse transcriptie plaats (cDNA synthese). Vervolgens worden de fragmenten geamplificeerd d.m.v. PCR en tot slot worden de fragmenten gesequenced met b.v. een illumina sequencer. Voor het sequencen krijgen de cDNA fragmenten sequencing adapters die nodig zijn om te binden bij illumina sequencing. Dit is het einde van de praktische uitvoering van scRNA-seq. De rest van de analyse word digitaal uitgevoerd met bijvoorbeeld R.</p>
+</div>
+<div id="anylseren-van-single-cell-rna-sequencing-data-in-r" class="section level3 hasAnchor">
+<h3>Anylseren van single cell RNA-sequencing data in R<a href="vrije-opdracht.html#anylseren-van-single-cell-rna-sequencing-data-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>De output van het sequencen zijn FASTQ bestanden</p>
+</div>
+</div>
+<div id="planning" class="section level2 hasAnchor">
+<h2>Planning<a href="vrije-opdracht.html#planning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>learn how to use the seurat package using a tutorial (2 weken)</li>
+<li>perform the analysis on real sequencing data from an experiment (2 weken)</li>
+<li>try and automate the analysis (1 week)</li>
+</ul>
+</div>
+<div id="bronnen" class="section level2 hasAnchor">
+<h2>Bronnen<a href="vrije-opdracht.html#bronnen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://www.10xgenomics.com/blog/how-does-single-cell-rna-seq-work" class="uri">https://www.10xgenomics.com/blog/how-does-single-cell-rna-seq-work</a>
+<a href="https://www.10xgenomics.com/blog/how-single-cell-sequencing-data-analysis-works" class="uri">https://www.10xgenomics.com/blog/how-single-cell-sequencing-data-analysis-works</a>
+<a href="https://satijalab.org/seurat/articles/pbmc3k_tutorial" class="uri">https://satijalab.org/seurat/articles/pbmc3k_tutorial</a></p>
+</div>
+<div id="section" class="section level2">
+<h2></h2>
 
+</div>
 </div>
             </section>
 
