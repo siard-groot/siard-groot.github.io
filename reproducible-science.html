@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Reproducible Science | Portfolio</title>
+  <meta name="description" content="6 Reproducible Science | Portfolio" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Reproducible Science | Portfolio" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Reproducible Science | Portfolio" />
+  
+  
+  
+
+<meta name="author" content="Siard Groot" />
+
+
+<meta name="date" content="2026-05-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="datamanagement.html"/>
+<link rel="next" href="sql.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introductie</a></li>
+<li class="chapter" data-level="2" data-path="cv.html"><a href="cv.html"><i class="fa fa-check"></i><b>2</b> CV</a>
+<ul>
+<li class="chapter" data-level="2.3" data-path="cv.html"><a href="cv.html#education"><i class="fa fa-check"></i><b>2.3</b> Education</a></li>
+<li class="chapter" data-level="2.4" data-path="cv.html"><a href="cv.html#skills"><i class="fa fa-check"></i><b>2.4</b> Skills</a></li>
+<li class="chapter" data-level="2.5" data-path="cv.html"><a href="cv.html#languages"><i class="fa fa-check"></i><b>2.5</b> Languages</a></li>
+<li class="chapter" data-level="2.6" data-path="cv.html"><a href="cv.html#job-experience"><i class="fa fa-check"></i><b>2.6</b> Job experience</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="toekomst.html"><a href="toekomst.html"><i class="fa fa-check"></i><b>3</b> Toekomst</a></li>
+<li class="chapter" data-level="4" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html"><i class="fa fa-check"></i><b>4</b> Vrije opdracht</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#keuze-onderwerp"><i class="fa fa-check"></i><b>4.1</b> Keuze onderwerp</a></li>
+<li class="chapter" data-level="4.2" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#wat-is-single-cell-rna-sequencing"><i class="fa fa-check"></i><b>4.2</b> Wat is single-cell RNA-sequencing?</a></li>
+<li class="chapter" data-level="4.3" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#analyseren-van-single-cell-rna-sequencingdata-in-r"><i class="fa fa-check"></i><b>4.3</b> Analyseren van single-cell RNA-sequencingdata in R</a></li>
+<li class="chapter" data-level="4.4" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#uitvoering-op-dataset"><i class="fa fa-check"></i><b>4.4</b> Uitvoering op dataset</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#create-a-seurat-object"><i class="fa fa-check"></i><b>4.4.1</b> Create a Seurat object</a></li>
+<li class="chapter" data-level="4.4.2" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#quality-control"><i class="fa fa-check"></i><b>4.4.2</b> Quality control</a></li>
+<li class="chapter" data-level="4.4.3" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#normalization"><i class="fa fa-check"></i><b>4.4.3</b> Normalization</a></li>
+<li class="chapter" data-level="4.4.4" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#feature-selection-for-following-heterogeneity-analysis"><i class="fa fa-check"></i><b>4.4.4</b> Feature selection for following heterogeneity analysis</a></li>
+<li class="chapter" data-level="4.4.5" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#data-scaling"><i class="fa fa-check"></i><b>4.4.5</b> Data scaling</a></li>
+<li class="chapter" data-level="4.4.6" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#linear-dimensionality-reduction-using-principal-component-analysis-pca"><i class="fa fa-check"></i><b>4.4.6</b> Linear dimensionality reduction using principal component analysis (PCA)</a></li>
+<li class="chapter" data-level="4.4.7" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#non-linear-dimension-reduction-for-visualization"><i class="fa fa-check"></i><b>4.4.7</b> Non-linear dimension reduction for visualization</a></li>
+<li class="chapter" data-level="4.4.8" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#cluster-the-cells"><i class="fa fa-check"></i><b>4.4.8</b> Cluster the cells</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="datamanagement.html"><a href="datamanagement.html"><i class="fa fa-check"></i><b>5</b> Datamanagement</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="datamanagement.html"><a href="datamanagement.html#rna-seq-repository"><i class="fa fa-check"></i><b>5.1</b> RNA-seq repository</a></li>
+<li class="chapter" data-level="5.2" data-path="datamanagement.html"><a href="datamanagement.html#portfolio-repository"><i class="fa fa-check"></i><b>5.2</b> Portfolio repository</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="reproducible-science.html"><a href="reproducible-science.html"><i class="fa fa-check"></i><b>6</b> Reproducible Science</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="reproducible-science.html"><a href="reproducible-science.html#reproducing-a-dataset"><i class="fa fa-check"></i><b>6.1</b> Reproducing a dataset</a></li>
+<li class="chapter" data-level="6.2" data-path="reproducible-science.html"><a href="reproducible-science.html#beoordeling-op-reproduceerbaarheid-van-een-artikel"><i class="fa fa-check"></i><b>6.2</b> Beoordeling op reproduceerbaarheid van een artikel</a></li>
+<li class="chapter" data-level="6.3" data-path="reproducible-science.html"><a href="reproducible-science.html#beoordeling-op-basis-van-criteria"><i class="fa fa-check"></i><b>6.3</b> Beoordeling op basis van criteria</a></li>
+<li class="chapter" data-level="6.4" data-path="reproducible-science.html"><a href="reproducible-science.html#reproductie-van-de-data"><i class="fa fa-check"></i><b>6.4</b> Reproductie van de data</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i><b>7</b> SQL</a></li>
+<li class="chapter" data-level="8" data-path="r-package.html"><a href="r-package.html"><i class="fa fa-check"></i><b>8</b> R package</a></li>
+<li class="chapter" data-level="9" data-path="project-als-database.html"><a href="project-als-database.html"><i class="fa fa-check"></i><b>9</b> Project ALS database</a></li>
+<li class="chapter" data-level="10" data-path="report-for-netherlands-in-january-2021.html"><a href="report-for-netherlands-in-january-2021.html"><i class="fa fa-check"></i><b>10</b> Report for Netherlands in January, 2021</a>
+<ul>
+<li class="chapter" data-level="10.0.1" data-path="report-for-netherlands-in-january-2021.html"><a href="report-for-netherlands-in-january-2021.html#data-summary"><i class="fa fa-check"></i><b>10.0.1</b> Data summary</a></li>
+<li class="chapter" data-level="10.1" data-path="report-for-netherlands-in-january-2021.html"><a href="report-for-netherlands-in-january-2021.html#video-of-parameterized-rmd"><i class="fa fa-check"></i><b>10.1</b> Video of parameterized rmd</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="bibliografie.html"><a href="bibliografie.html"><i class="fa fa-check"></i><b>11</b> Bibliografie</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Portfolio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="reproducible-science" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Reproducible Science<a href="reproducible-science.html#reproducible-science" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Reproduceerbaarheid houdt in dat onderzoekers die beschikken over dezelfde dataset en dezelfde scripts tot dezelfde conclusie moeten komen. Hiervoor is het nodig dat de data uit een onderzoek publiek is en dat alle analyses nauwkeurig zijn uitgevoerd en genoteerd in bijvoorbeeld een script. In veel publicaties is dit niet het geval. Vaak word de ruwe data of de uitgevoerde analyses achtergehouden waardoor de resultaten niet gereproduceerd kunnen worden.</p>
+<div id="reproducing-a-dataset" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Reproducing a dataset<a href="reproducible-science.html#reproducing-a-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<pre><code>## Linking to ImageMagick 6.9.13.29
+## Enabled features: cairo, fontconfig, freetype, heic, lcms, pango, raw, rsvg, webp
+## Disabled features: fftw, ghostscript, x11</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="reproducible-science.html#cb50-1" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb50-2"><a href="reproducible-science.html#cb50-2" tabindex="-1"></a>celiqflow <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data/reproducible_data/CE.LIQ.FLOW.062_Tidydata(1).xlsx&quot;</span>),</span>
+<span id="cb50-3"><a href="reproducible-science.html#cb50-3" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="dv">1</span>,)</span>
+<span id="cb50-4"><a href="reproducible-science.html#cb50-4" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="reproducible-science.html#cb50-5" tabindex="-1"></a><span class="co"># Change column variable type</span></span>
+<span id="cb50-6"><a href="reproducible-science.html#cb50-6" tabindex="-1"></a>celiqflow<span class="sc">$</span>compConcentration <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">&quot;,&quot;</span>,<span class="st">&quot;.&quot;</span>,celiqflow<span class="sc">$</span>compConcentration))</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="reproducible-science.html#cb51-1" tabindex="-1"></a><span class="co"># Create graph</span></span>
+<span id="cb51-2"><a href="reproducible-science.html#cb51-2" tabindex="-1"></a>celiqflow <span class="sc">%&gt;%</span> </span>
+<span id="cb51-3"><a href="reproducible-science.html#cb51-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log10</span>(compConcentration), <span class="at">y =</span> RawData,</span>
+<span id="cb51-4"><a href="reproducible-science.html#cb51-4" tabindex="-1"></a>             <span class="at">colour =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span></span>
+<span id="cb51-5"><a href="reproducible-science.html#cb51-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb51-6"><a href="reproducible-science.html#cb51-6" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb51-7"><a href="reproducible-science.html#cb51-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Amount of C.elegans after exposure to chemicals&quot;</span>,</span>
+<span id="cb51-8"><a href="reproducible-science.html#cb51-8" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Concentration (pct)&quot;</span>,</span>
+<span id="cb51-9"><a href="reproducible-science.html#cb51-9" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="sc">+</span></span>
+<span id="cb51-10"><a href="reproducible-science.html#cb51-10" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/point%20graph-1.png" alt="" width="672" /></p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="reproducible-science.html#cb52-1" tabindex="-1"></a><span class="co"># Normalise data</span></span>
+<span id="cb52-2"><a href="reproducible-science.html#cb52-2" tabindex="-1"></a>celiqflow_normalised <span class="ot">&lt;-</span> celiqflow <span class="sc">%&gt;%</span></span>
+<span id="cb52-3"><a href="reproducible-science.html#cb52-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">normalised =</span> RawData <span class="sc">-</span> elegansInput) <span class="sc">%&gt;%</span> </span>
+<span id="cb52-4"><a href="reproducible-science.html#cb52-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">normalised =</span> normalised <span class="sc">/</span> <span class="fu">mean</span>(normalised, <span class="at">na.rm =</span> T))</span>
+<span id="cb52-5"><a href="reproducible-science.html#cb52-5" tabindex="-1"></a><span class="fu">view</span>(celiqflow)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="reproducible-science.html#cb53-1" tabindex="-1"></a>celiqflow_normalised <span class="sc">%&gt;%</span> </span>
+<span id="cb53-2"><a href="reproducible-science.html#cb53-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log10</span>(compConcentration), <span class="at">y =</span> normalised,</span>
+<span id="cb53-3"><a href="reproducible-science.html#cb53-3" tabindex="-1"></a>             <span class="at">colour =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span></span>
+<span id="cb53-4"><a href="reproducible-science.html#cb53-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb53-5"><a href="reproducible-science.html#cb53-5" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb53-6"><a href="reproducible-science.html#cb53-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Amount of C.elegans after exposure to chemicals&quot;</span>,</span>
+<span id="cb53-7"><a href="reproducible-science.html#cb53-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Concentration (pct)&quot;</span>,</span>
+<span id="cb53-8"><a href="reproducible-science.html#cb53-8" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="sc">+</span></span>
+<span id="cb53-9"><a href="reproducible-science.html#cb53-9" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 5 rows containing missing values or values outside the scale
+## range (`geom_point()`).
+## Removed 5 rows containing missing values or values outside the scale
+## range (`geom_point()`).</code></pre>
+<p><img src="_main_files/figure-html/normalised%20point%20graph-1.png" alt="" width="672" /></p>
+<p>De negatieve controle zijn C.elegans die niet behandeld zijn met medium i.p.v. een chamicalië. De positieve controles zijn behandeld met ethanol waarvond bekend is dat het toxisch is voor C.elegans. Aan de hand van de controles kan worden vastgested of spreiding van de data eruit ziet zoals verwacht word. Ook kan op basis van de controles worden ingechat hoe sterk het effect is van een experimentele conditie.</p>
+<p>De data is genormaliseerd door de elegans input van de RawData af te trekken en deze waardes door het gemiddelde te delen van de gecorrigeerde data.</p>
+</div>
+<div id="beoordeling-op-reproduceerbaarheid-van-een-artikel" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Beoordeling op reproduceerbaarheid van een artikel<a href="reproducible-science.html#beoordeling-op-reproduceerbaarheid-van-een-artikel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Artikel: Quantifying viral pandemic potential from experimental transmission studies</p>
+<p>Om toekomstige pandemiën te voorspellen word er onderzoek gedaan naar dierlijke virussen die een mogelijk risico vormen voor mensen. De huidige methoden die worden gebruikt om de kans op een pandemie te voorspellen zijn gelimiteerd en zeggen niet altijd iets over de besmettelijkheid onder mensen. In dit onderzoek word een model gepresenteerd die de resultaten van dierlijke transmissiestudies gebruikt om een kwantitatieve inschatting te maken van het risico op een pandemie.</p>
+<p>Het analytische model dat word gepresenteerd lijkt goed te werken. De spreiding van twee influenza virussen onder fretten is getest en vergeleken met data van de werkeleijke verspreiding van het virus. Er worden wel een paar aannames gedaan. Onder andere dat de transmissie tussen fretten dezelfde dynamiek heeft als tussen mensen.</p>
+</div>
+<div id="beoordeling-op-basis-van-criteria" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Beoordeling op basis van criteria<a href="reproducible-science.html#beoordeling-op-basis-van-criteria" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/Screenshot%202026-05-03%20at%2015.42.16.png" alt="" width="807" /></p>
+</div>
+<div id="reproductie-van-de-data" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Reproductie van de data<a href="reproducible-science.html#reproductie-van-de-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As seen in the table above, the paper meets most of the requirements except for the ethics statement. The data is obtainable through a github page. It contains two folders of which the content isn’t immediately deducible. Both folders contain scripts. Furthermore, two csv files along with similarly named R scripts named after the two influenza variants (H1N1, H3N2) used in the experiment are found in the repository. Lastly 3 R scripts can be found in the repository.</p>
+<p>The readme file contains an introduction and a link to the article and the origin of the data. Explanations of all the files and folders are provided as well.</p>
+<p>I loaded the github repository in Rstudio and tried to execute the two scripts which visualises the initial data of each variant before any downstream analysis is done. Besides having to install a few packges, the script ran without error. The following two images were generated showing the Viral titer over time after ferrets got exposed to the virus.</p>
+<p><img src="_main_files/figure-html/virus%20titer%20graph-1.png" alt="" width="1800" />
+<br>
+<br>
+I also managed to generate this image showing the likelyhood of transmission (A) based on the calculated parameter “s” and the probability of transmission based on the viral titer(B).</p>
+<p><img src="images/viral_titer.png" alt="" width="1200" />
+<br>
+<br>
+I tried running some other scripts which performs some of their analyses, but those would have taken too long to execute fully (hours). They seemed to be executing without error non the less. I decided to grade the reproducibility of the data 4/5. I was surprised by the fact that I could run the analyses without any errors. And the scripts generated the exact graphs used in the paper. The only remark I have is on the documentation and organisation of the scripts. They could provide some more detail regarding the function of the scripts and perhaps on the run time of the scripts. Lastly the data could have been put in a seperate data folder and all the scripts in a folder with respective subfolders.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="datamanagement.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sql.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

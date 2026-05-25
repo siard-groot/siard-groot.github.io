@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 SQL | Portfolio</title>
+  <meta name="description" content="7 SQL | Portfolio" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 SQL | Portfolio" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 SQL | Portfolio" />
+  
+  
+  
+
+<meta name="author" content="Siard Groot" />
+
+
+<meta name="date" content="2026-05-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="reproducible-science.html"/>
+<link rel="next" href="r-package.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introductie</a></li>
+<li class="chapter" data-level="2" data-path="cv.html"><a href="cv.html"><i class="fa fa-check"></i><b>2</b> CV</a>
+<ul>
+<li class="chapter" data-level="2.3" data-path="cv.html"><a href="cv.html#education"><i class="fa fa-check"></i><b>2.3</b> Education</a></li>
+<li class="chapter" data-level="2.4" data-path="cv.html"><a href="cv.html#skills"><i class="fa fa-check"></i><b>2.4</b> Skills</a></li>
+<li class="chapter" data-level="2.5" data-path="cv.html"><a href="cv.html#languages"><i class="fa fa-check"></i><b>2.5</b> Languages</a></li>
+<li class="chapter" data-level="2.6" data-path="cv.html"><a href="cv.html#job-experience"><i class="fa fa-check"></i><b>2.6</b> Job experience</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="toekomst.html"><a href="toekomst.html"><i class="fa fa-check"></i><b>3</b> Toekomst</a></li>
+<li class="chapter" data-level="4" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html"><i class="fa fa-check"></i><b>4</b> Vrije opdracht</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#keuze-onderwerp"><i class="fa fa-check"></i><b>4.1</b> Keuze onderwerp</a></li>
+<li class="chapter" data-level="4.2" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#wat-is-single-cell-rna-sequencing"><i class="fa fa-check"></i><b>4.2</b> Wat is single-cell RNA-sequencing?</a></li>
+<li class="chapter" data-level="4.3" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#analyseren-van-single-cell-rna-sequencingdata-in-r"><i class="fa fa-check"></i><b>4.3</b> Analyseren van single-cell RNA-sequencingdata in R</a></li>
+<li class="chapter" data-level="4.4" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#uitvoering-op-dataset"><i class="fa fa-check"></i><b>4.4</b> Uitvoering op dataset</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#create-a-seurat-object"><i class="fa fa-check"></i><b>4.4.1</b> Create a Seurat object</a></li>
+<li class="chapter" data-level="4.4.2" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#quality-control"><i class="fa fa-check"></i><b>4.4.2</b> Quality control</a></li>
+<li class="chapter" data-level="4.4.3" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#normalization"><i class="fa fa-check"></i><b>4.4.3</b> Normalization</a></li>
+<li class="chapter" data-level="4.4.4" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#feature-selection-for-following-heterogeneity-analysis"><i class="fa fa-check"></i><b>4.4.4</b> Feature selection for following heterogeneity analysis</a></li>
+<li class="chapter" data-level="4.4.5" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#data-scaling"><i class="fa fa-check"></i><b>4.4.5</b> Data scaling</a></li>
+<li class="chapter" data-level="4.4.6" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#linear-dimensionality-reduction-using-principal-component-analysis-pca"><i class="fa fa-check"></i><b>4.4.6</b> Linear dimensionality reduction using principal component analysis (PCA)</a></li>
+<li class="chapter" data-level="4.4.7" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#non-linear-dimension-reduction-for-visualization"><i class="fa fa-check"></i><b>4.4.7</b> Non-linear dimension reduction for visualization</a></li>
+<li class="chapter" data-level="4.4.8" data-path="vrije-opdracht.html"><a href="vrije-opdracht.html#cluster-the-cells"><i class="fa fa-check"></i><b>4.4.8</b> Cluster the cells</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="datamanagement.html"><a href="datamanagement.html"><i class="fa fa-check"></i><b>5</b> Datamanagement</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="datamanagement.html"><a href="datamanagement.html#rna-seq-repository"><i class="fa fa-check"></i><b>5.1</b> RNA-seq repository</a></li>
+<li class="chapter" data-level="5.2" data-path="datamanagement.html"><a href="datamanagement.html#portfolio-repository"><i class="fa fa-check"></i><b>5.2</b> Portfolio repository</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="reproducible-science.html"><a href="reproducible-science.html"><i class="fa fa-check"></i><b>6</b> Reproducible Science</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="reproducible-science.html"><a href="reproducible-science.html#reproducing-a-dataset"><i class="fa fa-check"></i><b>6.1</b> Reproducing a dataset</a></li>
+<li class="chapter" data-level="6.2" data-path="reproducible-science.html"><a href="reproducible-science.html#beoordeling-op-reproduceerbaarheid-van-een-artikel"><i class="fa fa-check"></i><b>6.2</b> Beoordeling op reproduceerbaarheid van een artikel</a></li>
+<li class="chapter" data-level="6.3" data-path="reproducible-science.html"><a href="reproducible-science.html#beoordeling-op-basis-van-criteria"><i class="fa fa-check"></i><b>6.3</b> Beoordeling op basis van criteria</a></li>
+<li class="chapter" data-level="6.4" data-path="reproducible-science.html"><a href="reproducible-science.html#reproductie-van-de-data"><i class="fa fa-check"></i><b>6.4</b> Reproductie van de data</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sql.html"><a href="sql.html"><i class="fa fa-check"></i><b>7</b> SQL</a></li>
+<li class="chapter" data-level="8" data-path="r-package.html"><a href="r-package.html"><i class="fa fa-check"></i><b>8</b> R package</a></li>
+<li class="chapter" data-level="9" data-path="project-als-database.html"><a href="project-als-database.html"><i class="fa fa-check"></i><b>9</b> Project ALS database</a></li>
+<li class="chapter" data-level="10" data-path="report-for-netherlands-in-january-2021.html"><a href="report-for-netherlands-in-january-2021.html"><i class="fa fa-check"></i><b>10</b> Report for Netherlands in January, 2021</a>
+<ul>
+<li class="chapter" data-level="10.0.1" data-path="report-for-netherlands-in-january-2021.html"><a href="report-for-netherlands-in-january-2021.html#data-summary"><i class="fa fa-check"></i><b>10.0.1</b> Data summary</a></li>
+<li class="chapter" data-level="10.1" data-path="report-for-netherlands-in-january-2021.html"><a href="report-for-netherlands-in-january-2021.html#video-of-parameterized-rmd"><i class="fa fa-check"></i><b>10.1</b> Video of parameterized rmd</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="bibliografie.html"><a href="bibliografie.html"><i class="fa fa-check"></i><b>11</b> Bibliografie</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Portfolio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sql" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> SQL<a href="sql.html#sql" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>SQL is a kind of untraditional programming language which is used to to acces and manipulate data in relational databases. Relational databases are made up of multiple tables also known as relations. Relations contain fields (columns) and are connected by keys aka fields which are shared by multiple relations. Keys allow two or more relations to be combined and manipulated for a particular use.</p>
+<p>In this chapter a database will be manipulated using SQL and R.</p>
+<p>I start with loading all of the data sets and making them tidy</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="sql.html#cb55-1" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data/sql_data/dengue_data.csv&quot;</span>),<span class="at">skip =</span> <span class="dv">11</span>)</span>
+<span id="cb55-2"><a href="sql.html#cb55-2" tabindex="-1"></a>flu <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data/sql_data/flu_data.csv&quot;</span>),<span class="at">skip =</span> <span class="dv">11</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="sql.html#cb56-1" tabindex="-1"></a><span class="co"># Combine seperate country columns</span></span>
+<span id="cb56-2"><a href="sql.html#cb56-2" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span><span class="dv">1</span>,</span>
+<span id="cb56-3"><a href="sql.html#cb56-3" tabindex="-1"></a>                                  <span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>,</span>
+<span id="cb56-4"><a href="sql.html#cb56-4" tabindex="-1"></a>                                  <span class="at">values_to =</span> <span class="st">&quot;dengue_activity&quot;</span>)</span>
+<span id="cb56-5"><a href="sql.html#cb56-5" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> <span class="fu">separate</span>(Date, <span class="at">into=</span><span class="fu">c</span>(<span class="st">&quot;year&quot;</span>,<span class="st">&quot;month&quot;</span>,<span class="st">&quot;day&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)</span>
+<span id="cb56-6"><a href="sql.html#cb56-6" tabindex="-1"></a><span class="fu">unique</span>(dengue<span class="sc">$</span>country)</span></code></pre></div>
+<pre><code>##  [1] &quot;Argentina&quot;   &quot;Bolivia&quot;     &quot;Brazil&quot;      &quot;India&quot;       &quot;Indonesia&quot;  
+##  [6] &quot;Mexico&quot;      &quot;Philippines&quot; &quot;Singapore&quot;   &quot;Thailand&quot;    &quot;Venezuela&quot;</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="sql.html#cb58-1" tabindex="-1"></a><span class="co"># Seperate column Date</span></span>
+<span id="cb58-2"><a href="sql.html#cb58-2" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span><span class="dv">1</span>,</span>
+<span id="cb58-3"><a href="sql.html#cb58-3" tabindex="-1"></a>                            <span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>,</span>
+<span id="cb58-4"><a href="sql.html#cb58-4" tabindex="-1"></a>                            <span class="at">values_to =</span> <span class="st">&quot;flu_activity&quot;</span>)</span>
+<span id="cb58-5"><a href="sql.html#cb58-5" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> <span class="fu">separate</span>(Date, <span class="at">into=</span><span class="fu">c</span>(<span class="st">&quot;year&quot;</span>,<span class="st">&quot;month&quot;</span>,<span class="st">&quot;day&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)</span>
+<span id="cb58-6"><a href="sql.html#cb58-6" tabindex="-1"></a></span>
+<span id="cb58-7"><a href="sql.html#cb58-7" tabindex="-1"></a><span class="co"># Convert column year in dengue and flue to datatype integer</span></span>
+<span id="cb58-8"><a href="sql.html#cb58-8" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year))</span>
+<span id="cb58-9"><a href="sql.html#cb58-9" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year))</span>
+<span id="cb58-10"><a href="sql.html#cb58-10" tabindex="-1"></a></span>
+<span id="cb58-11"><a href="sql.html#cb58-11" tabindex="-1"></a><span class="co"># Convert column country in gapminder to character</span></span>
+<span id="cb58-12"><a href="sql.html#cb58-12" tabindex="-1"></a>gapminder <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">as.character</span>(country))</span>
+<span id="cb58-13"><a href="sql.html#cb58-13" tabindex="-1"></a></span>
+<span id="cb58-14"><a href="sql.html#cb58-14" tabindex="-1"></a></span>
+<span id="cb58-15"><a href="sql.html#cb58-15" tabindex="-1"></a><span class="co"># Match the country codes</span></span>
+<span id="cb58-16"><a href="sql.html#cb58-16" tabindex="-1"></a>dengue<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">countrycode</span>(dengue<span class="sc">$</span>country, </span>
+<span id="cb58-17"><a href="sql.html#cb58-17" tabindex="-1"></a>                                <span class="at">origin =</span> <span class="st">&quot;country.name&quot;</span>, </span>
+<span id="cb58-18"><a href="sql.html#cb58-18" tabindex="-1"></a>                                <span class="at">destination =</span> <span class="st">&quot;country.name&quot;</span>)</span>
+<span id="cb58-19"><a href="sql.html#cb58-19" tabindex="-1"></a>flu<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">countrycode</span>(flu<span class="sc">$</span>country, </span>
+<span id="cb58-20"><a href="sql.html#cb58-20" tabindex="-1"></a>                                <span class="at">origin =</span> <span class="st">&quot;country.name&quot;</span>, </span>
+<span id="cb58-21"><a href="sql.html#cb58-21" tabindex="-1"></a>                                <span class="at">destination =</span> <span class="st">&quot;country.name&quot;</span>)</span>
+<span id="cb58-22"><a href="sql.html#cb58-22" tabindex="-1"></a></span>
+<span id="cb58-23"><a href="sql.html#cb58-23" tabindex="-1"></a>gapminder<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">countrycode</span>(gapminder<span class="sc">$</span>country, </span>
+<span id="cb58-24"><a href="sql.html#cb58-24" tabindex="-1"></a>                                      <span class="at">origin =</span> <span class="st">&quot;country.name&quot;</span>, </span>
+<span id="cb58-25"><a href="sql.html#cb58-25" tabindex="-1"></a>                                      <span class="at">destination =</span> <span class="st">&quot;country.name&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="sql.html#cb59-1" tabindex="-1"></a><span class="fu">write.csv</span>(dengue, <span class="st">&quot;data/sql_data/dengue_data_tdy.csv&quot;</span>, <span class="at">row.names =</span> F)</span>
+<span id="cb59-2"><a href="sql.html#cb59-2" tabindex="-1"></a><span class="fu">write.csv</span>(flu, <span class="st">&quot;data/sql_data/flu_data_tdy.csv&quot;</span>, <span class="at">row.names =</span> F)</span>
+<span id="cb59-3"><a href="sql.html#cb59-3" tabindex="-1"></a><span class="fu">write.csv</span>(gapminder, <span class="st">&quot;data/sql_data/gapminder_data_tdy.csv&quot;</span>, <span class="at">row.names =</span> F)</span></code></pre></div>
+<p>The next step is to create the tables for the data in DBeaver. For this I used the following PostgreSQL. The data has been imported using a command in the psql terminal</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="sql.html#cb60-1" tabindex="-1"></a><span class="sc">--</span> create the tables</span>
+<span id="cb60-2"><a href="sql.html#cb60-2" tabindex="-1"></a>create table <span class="fu">dengue_data</span> (</span>
+<span id="cb60-3"><a href="sql.html#cb60-3" tabindex="-1"></a>year INT,</span>
+<span id="cb60-4"><a href="sql.html#cb60-4" tabindex="-1"></a>month VARCHAR,</span>
+<span id="cb60-5"><a href="sql.html#cb60-5" tabindex="-1"></a>day VARCHAR,</span>
+<span id="cb60-6"><a href="sql.html#cb60-6" tabindex="-1"></a>country VARCHAR,</span>
+<span id="cb60-7"><a href="sql.html#cb60-7" tabindex="-1"></a>dengue_activity NUMERIC</span>
+<span id="cb60-8"><a href="sql.html#cb60-8" tabindex="-1"></a>);</span>
+<span id="cb60-9"><a href="sql.html#cb60-9" tabindex="-1"></a></span>
+<span id="cb60-10"><a href="sql.html#cb60-10" tabindex="-1"></a>create table <span class="fu">flu_data</span> (</span>
+<span id="cb60-11"><a href="sql.html#cb60-11" tabindex="-1"></a>year INT,</span>
+<span id="cb60-12"><a href="sql.html#cb60-12" tabindex="-1"></a>month VARCHAR,</span>
+<span id="cb60-13"><a href="sql.html#cb60-13" tabindex="-1"></a>day VARCHAR,</span>
+<span id="cb60-14"><a href="sql.html#cb60-14" tabindex="-1"></a>country VARCHAR,</span>
+<span id="cb60-15"><a href="sql.html#cb60-15" tabindex="-1"></a>dengue_activity NUMERIC</span>
+<span id="cb60-16"><a href="sql.html#cb60-16" tabindex="-1"></a>);</span>
+<span id="cb60-17"><a href="sql.html#cb60-17" tabindex="-1"></a></span>
+<span id="cb60-18"><a href="sql.html#cb60-18" tabindex="-1"></a>create table <span class="fu">gapminder_data</span> (</span>
+<span id="cb60-19"><a href="sql.html#cb60-19" tabindex="-1"></a>country VARCHAR,</span>
+<span id="cb60-20"><a href="sql.html#cb60-20" tabindex="-1"></a>year INT,</span>
+<span id="cb60-21"><a href="sql.html#cb60-21" tabindex="-1"></a>infant_mortality NUMERIC,</span>
+<span id="cb60-22"><a href="sql.html#cb60-22" tabindex="-1"></a>life_expectancy NUMERIC,</span>
+<span id="cb60-23"><a href="sql.html#cb60-23" tabindex="-1"></a>fertility NUMERIC,</span>
+<span id="cb60-24"><a href="sql.html#cb60-24" tabindex="-1"></a>population NUMERIC,</span>
+<span id="cb60-25"><a href="sql.html#cb60-25" tabindex="-1"></a>gdp NUMERIC,</span>
+<span id="cb60-26"><a href="sql.html#cb60-26" tabindex="-1"></a>continent VARCHAR,</span>
+<span id="cb60-27"><a href="sql.html#cb60-27" tabindex="-1"></a>region VARCHAR</span>
+<span id="cb60-28"><a href="sql.html#cb60-28" tabindex="-1"></a>);</span>
+<span id="cb60-29"><a href="sql.html#cb60-29" tabindex="-1"></a></span>
+<span id="cb60-30"><a href="sql.html#cb60-30" tabindex="-1"></a><span class="sc">--</span> load the data into the tables using this psql terminal command</span>
+<span id="cb60-31"><a href="sql.html#cb60-31" tabindex="-1"></a>\copy table_name FROM <span class="st">&#39;/myfile.csv&#39;</span> DELIMITER <span class="st">&#39;,&#39;</span> CSV HEADER <span class="cn">NULL</span> <span class="st">&#39;NA&#39;</span>;</span>
+<span id="cb60-32"><a href="sql.html#cb60-32" tabindex="-1"></a></span>
+<span id="cb60-33"><a href="sql.html#cb60-33" tabindex="-1"></a><span class="sc">--</span> inspect data</span>
+<span id="cb60-34"><a href="sql.html#cb60-34" tabindex="-1"></a>select <span class="sc">*</span> from dengue_data</span>
+<span id="cb60-35"><a href="sql.html#cb60-35" tabindex="-1"></a>select <span class="sc">*</span> from flu_data</span>
+<span id="cb60-36"><a href="sql.html#cb60-36" tabindex="-1"></a>select <span class="sc">*</span> from gapminder_data</span></code></pre></div>
+<p>I have chosen to look at the relation between flu/dengue activity, life expectancy and child mortality. I have used the following SQL query to create this table and exported it to a .csv file.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="sql.html#cb61-1" tabindex="-1"></a>SELECT flu_data.country, flu_data.year, flu_activity, dengue_activity, infant_mortality, life_expectancy, continent</span>
+<span id="cb61-2"><a href="sql.html#cb61-2" tabindex="-1"></a>FROM flu_data</span>
+<span id="cb61-3"><a href="sql.html#cb61-3" tabindex="-1"></a>INNER JOIN dengue_data </span>
+<span id="cb61-4"><a href="sql.html#cb61-4" tabindex="-1"></a>    ON flu_data.country <span class="ot">=</span> dengue_data.country</span>
+<span id="cb61-5"><a href="sql.html#cb61-5" tabindex="-1"></a>    AND flu_data.year <span class="ot">=</span> dengue_data.year</span>
+<span id="cb61-6"><a href="sql.html#cb61-6" tabindex="-1"></a>INNER JOIN gapminder_data</span>
+<span id="cb61-7"><a href="sql.html#cb61-7" tabindex="-1"></a>    ON dengue_data.country <span class="ot">=</span> gapminder_data.country</span>
+<span id="cb61-8"><a href="sql.html#cb61-8" tabindex="-1"></a>    AND dengue_data.year <span class="ot">=</span> gapminder_data.year;</span></code></pre></div>
+<p>Now the newly combined data can be imported into R. Some graphs have been made using the joined table. In the first graph the average flu activity per country can be seen. The second graph shows the average flu activity per month per country. In some countries the activity increases near december while in other countries like south africa the activity increases near june. The third graph depicts infant mortality against flu activity. There is little to no fluctuation in infant mortality even though the flu activity increases and decreases quite a lot. The final graph shows the flu activity per month over the years. 2009 seems to have been a year with high activity, as can also been seen in the previous figure.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="sql.html#cb62-1" tabindex="-1"></a>flu_den_gap_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data/sql_data/joined_data3.csv&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="sql.html#cb63-1" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;steelblue1&quot;</span>, <span class="st">&quot;steelblue4&quot;</span>))(<span class="dv">29</span>)</span>
+<span id="cb63-2"><a href="sql.html#cb63-2" tabindex="-1"></a>flu_den_gap_data <span class="sc">%&gt;%</span> </span>
+<span id="cb63-3"><a href="sql.html#cb63-3" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> </span>
+<span id="cb63-4"><a href="sql.html#cb63-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_flu =</span> <span class="fu">mean</span>(flu_activity, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb63-5"><a href="sql.html#cb63-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">reorder</span>(country,mean_flu)) <span class="sc">%&gt;%</span> </span>
+<span id="cb63-6"><a href="sql.html#cb63-6" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> mean_flu, <span class="at">fill =</span> country)) <span class="sc">+</span></span>
+<span id="cb63-7"><a href="sql.html#cb63-7" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb63-8"><a href="sql.html#cb63-8" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb63-9"><a href="sql.html#cb63-9" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb63-10"><a href="sql.html#cb63-10" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Average flu activity per country&quot;</span>,</span>
+<span id="cb63-11"><a href="sql.html#cb63-11" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Country&quot;</span>,</span>
+<span id="cb63-12"><a href="sql.html#cb63-12" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Average flu activity&quot;</span></span>
+<span id="cb63-13"><a href="sql.html#cb63-13" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb63-14"><a href="sql.html#cb63-14" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb63-15"><a href="sql.html#cb63-15" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> colors) <span class="sc">+</span></span>
+<span id="cb63-16"><a href="sql.html#cb63-16" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/plot%20graph%20flu-1.png" alt="" width="672" /></p>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by country and month.
+## ℹ Output is grouped by country.
+## ℹ Use `summarise(.groups = &quot;drop_last&quot;)` to silence this message.
+## ℹ Use `summarise(.by = c(country, month))` for per-operation grouping
+##   (`?dplyr::dplyr_by`) instead.</code></pre>
+<p><img src="_main_files/figure-html/heatmap1-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/line%20graph-1.png" alt="" width="672" /></p>
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by year and month.
+## ℹ Output is grouped by year.
+## ℹ Use `summarise(.groups = &quot;drop_last&quot;)` to silence this message.
+## ℹ Use `summarise(.by = c(year, month))` for per-operation grouping
+##   (`?dplyr::dplyr_by`) instead.</code></pre>
+<p><img src="_main_files/figure-html/heatmap2-1.png" alt="" width="672" /></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="reproducible-science.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>
